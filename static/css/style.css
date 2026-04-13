@@ -1,0 +1,107 @@
+/* Custom Animations */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(50px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+.animate-fade-in {
+    animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-slide-left {
+    animation: slideLeft 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+.animate-slide-right {
+    animation: slideRight 1s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #4b5563;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #60a5fa;
+}
+
+/* Glassmorphism Effect */
+.glass {
+    background: rgba(31, 41, 55, 0.7);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Face Overlay Boxes */
+.face-box {
+    position: absolute;
+    border: 3px solid;
+    border-radius: 4px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 10;
+}
+
+.face-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px currentColor;
+    z-index: 20;
+}
+
+.face-label {
+    position: absolute;
+    top: -28px;
+    left: -3px;
+    background: inherit;
+    color: white;
+    padding: 2px 8px;
+    border-radius: 4px 4px 0 0;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    text-shadow: 0 1px 2px rgba(0,0,0,0.5);
+}
+
+#preview-container {
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#preview-image {
+    max-height: 500px;
+    width: auto;
+    display: block;
+}
+
+/* Analyze Button Pulse */
+#analyze-btn:not(:disabled):hover {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    transform: translateY(-2px);
+}
+
+#analyze-btn:active {
+    transform: translateY(0);
+}

@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VisionAI - Beautiful Computer Vision</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body class="bg-gray-900 text-white min-h-screen font-sans">
+    <div class="container mx-auto px-4 py-8">
+        <!-- Header -->
+        <header class="text-center mb-12 animate-fade-in">
+            <h1 class="text-5xl font-extrabold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent">
+                VisionAI
+            </h1>
+            <p class="text-gray-400 mt-4 text-lg">Harness the power of AI with your own keys.</p>
+        </header>
+
+        <!-- Main Content -->
+        <main class="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
+            <!-- Left Side: Config & Upload -->
+            <div class="space-y-8 animate-slide-left">
+                <!-- Configuration Card -->
+                <section class="bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-cog mr-2 text-blue-400"></i> Azure Configuration
+                    </h2>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Azure API Key</label>
+                            <input type="password" id="api_key" placeholder="Paste your Azure Vision key here" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                        </div>
+                        <div>
+                            <label class="block text-sm text-gray-400 mb-1">Azure Endpoint</label>
+                            <input type="text" id="endpoint" placeholder="https://<your-resource>.cognitiveservices.azure.com/" class="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-2 focus:ring-2 focus:ring-blue-500 outline-none transition-all">
+                            <p class="text-xs text-gray-500 mt-1 italic">Format: https://{resource-name}.cognitiveservices.azure.com/</p>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- Upload Card -->
+                <section class="bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-cloud-upload-alt mr-2 text-purple-400"></i> Upload Image
+                    </h2>
+                    <div id="drop-zone" class="border-2 border-dashed border-gray-600 rounded-xl p-8 text-center hover:border-blue-500 transition-colors cursor-pointer group">
+                        <input type="file" id="file-input" class="hidden" accept="image/*">
+                        <div class="space-y-4">
+                            <i class="fas fa-image text-4xl text-gray-500 group-hover:text-blue-400 transition-colors"></i>
+                            <p class="text-gray-400">Click or drag & drop image here</p>
+                        </div>
+                    </div>
+                    <!-- Image Preview with Overlay -->
+                    <div id="preview-container" class="mt-4 hidden relative mx-auto inline-block">
+                        <div class="relative inline-block overflow-hidden rounded-lg shadow-lg">
+                            <img id="preview-image" src="#" alt="Preview" class="block">
+                            <div id="face-overlay" class="absolute inset-0 pointer-events-none"></div>
+                        </div>
+                    </div>
+                    <button id="analyze-btn" class="w-full mt-6 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold py-3 rounded-lg hover:opacity-90 transition-all disabled:opacity-50 disabled:cursor-not-allowed">
+                        Analyze Image
+                    </button>
+                </section>
+            </div>
+
+            <!-- Right Side: Results -->
+            <div class="space-y-8 animate-slide-right">
+                <section class="bg-gray-800 p-6 rounded-2xl shadow-xl border border-gray-700 h-full flex flex-col">
+                    <h2 class="text-xl font-semibold mb-6 flex items-center">
+                        <i class="fas fa-magic mr-2 text-yellow-400"></i> AI Analysis Result
+                    </h2>
+                    <div id="loading" class="hidden flex-1 flex flex-col items-center justify-center space-y-4">
+                        <div class="w-12 h-12 border-4 border-blue-500 border-t-transparent rounded-full animate-spin"></div>
+                        <p class="text-gray-400">Consulting the AI spirits...</p>
+                    </div>
+                    <div id="result-content" class="flex-1 text-gray-300 leading-relaxed whitespace-pre-wrap">
+                        <p class="text-gray-500 italic">Results will appear here after analysis.</p>
+                    </div>
+                    <div id="face-results" class="mt-6 space-y-4 hidden">
+                        <h3 class="text-sm font-semibold text-gray-400 uppercase tracking-wider">Detected Faces</h3>
+                        <div id="faces-list" class="grid grid-cols-1 gap-3"></div>
+                    </div>
+                </section>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="mt-16 text-center text-gray-500 text-sm">
+            <p>&copy; 2026 VisionAI. Built with passion & AI.</p>
+        </footer>
+    </div>
+
+    <script src="/static/js/script.js"></script>
+</body>
+</html>
